@@ -1,0 +1,85 @@
+================================================================================
+TOPH Ride-Hailing MVP — Database-Enforced Invalid State Protection Tests
+Database: PostgreSQL 17 on 127.0.0.1:5433 (toph)
+Generated: 2026-10-16 10:49:01
+================================================================================
+
+### TEST 1: SECOND ACTIVE TRIP FOR RIDER
+
+Positive Control (First active trip creation):
+INSERT INTO trips (
+    id, rider_id, status,
+    pickup_location, dropoff_location,
+    fare_minor, currency, fare_base_minor, fare_per_km_minor, fare_per_minute_minor,
+    estimated_distance_km, estimated_duration_minutes,
+    idempotency_key, created_at, updated_at
+)
+VALUES (
+    '10101010-1010-4010-8010-101010101010',
+    '11111111-1111-4111-8111-111111111111',
+    'requested',
+    'Victoria Island, Lagos', 'Marina, Lagos',
+    200000, 'NGN', 50000, 15000, 3000,
+    8.0, 20,
+    'idem-test1-active-1', now(), now()
+);
+Result: INSERT 0 1
+
+Negative Attempt (Attempting second active trip for same rider):
+INSERT INTO trips (
+    id, rider_id, status,
+    pickup_location, dropoff_location,
+    fare_minor, currency, fare_base_minor, fare_per_km_minor, fare_per_minute_minor,
+    estimated_distance_km, estimated_duration_minutes,
+    idempotency_key, created_at, updated_at
+)
+VALUES (
+    '12121212-1212-4212-8212-121212121212',
+    '11111111-1111-4111-8111-111111111111',
+    'requested',
+    'Lekki Phase 1, Lagos', 'Ikoyi, Lagos',
+    250000, 'NGN', 50000, 15000, 3000,
+    10.0, 25,
+    'idem-test1-active-2', now(), now()
+);
+Rejection Error (Expected SQLSTATE 23505):
+ERROR:  duplicate key value violates unique constraint "trips_one_active_per_rider"
+DETAIL:  Key (rider_id)=(11111111-1111-4111-8111-111111111111) already exists.
+Constraint Enforced: trips_one_active_per_rider (Partial Unique Index)
+
+--------------------------------------------------------------------------------
+
+### TEST 2: REVIEW FOR AN INCOMPLETE TRIP
+
+Negative Attempt (Attempting review on 'requested' trip 10101010-1010-4010-8010-101010101010):
+INSERT INTO reviews (
+    id, trip_id, rider_id, driver_id, rating, comment, created_at, updated_at
+)
+VALUES (
+    '20202020-2020-4020-8020-202020202020',
+    '10101010-1010-4010-8010-101010101010',
+    '11111111-1111-4111-8111-111111111111',
+    '33333333-3333-4333-8333-333333333333',
+    5, 'Great ride!', now(), now()
+);
+Rejection Error (Expected SQLSTATE 23514):
+ERROR:  review: trip 10101010-1010-4010-8010-101010101010 is requested - a review requires a completed trip
+CONTEXT:  PL/pgSQL function fn_reviews_guard() line 29 at RAISE
+Rule Enforced: Trigger trg_reviews_guard executing fn_reviews_guard()
+
+--------------------------------------------------------------------------------
+
+### TEST 3: FORBIDDEN STATE TRANSITION (completed -> in_progress)
+
+Negative Attempt (Attempting illegal transition completed -> in_progress on trip 77777777-7777-4777-8777-777777777777):
+UPDATE trips
+SET status = 'in_progress',
+    updated_at = now()
+WHERE id = '77777777-7777-4777-8777-777777777777';
+Rejection Error (Expected SQLSTATE 23514):
+ERROR:  trip 77777777-7777-4777-8777-777777777777: invalid trip status transition from completed to in_progress
+CONTEXT:  PL/pgSQL function fn_trips_transition_guard() line 48 at RAISE
+Rule Enforced: Trigger trg_trips_transition_guard executing fn_trips_transition_guard()
+
+================================================================================
+

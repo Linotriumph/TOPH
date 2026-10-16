@@ -1,0 +1,47 @@
+                                         List of relations
+ Schema |       Name        | Type  |  Owner   | Persistence | Access method |  Size  | Description 
+--------+-------------------+-------+----------+-------------+---------------+--------+-------------
+ public | drivers           | table | postgres | permanent   | heap          | 16 kB  | 
+ public | payments          | table | postgres | permanent   | heap          | 80 kB  | 
+ public | reviews           | table | postgres | permanent   | heap          | 56 kB  | 
+ public | riders            | table | postgres | permanent   | heap          | 48 kB  | 
+ public | schema_migrations | table | postgres | permanent   | heap          | 16 kB  | 
+ public | trips             | table | postgres | permanent   | heap          | 120 kB | 
+ public | vehicles          | table | postgres | permanent   | heap          | 16 kB  | 
+(7 rows)
+
+
+
+Index Inventory:
+
+                                                            List of relations
+ Schema |              Name              | Type  |  Owner   |       Table       | Persistence | Access method |    Size    | Description 
+--------+--------------------------------+-------+----------+-------------------+-------------+---------------+------------+-------------
+ public | drivers_licence_key            | index | postgres | drivers           | permanent   | btree         | 16 kB      | 
+ public | drivers_phone_key              | index | postgres | drivers           | permanent   | btree         | 16 kB      | 
+ public | drivers_pkey                   | index | postgres | drivers           | permanent   | btree         | 16 kB      | 
+ public | payments_idempotency_key_key   | index | postgres | payments          | permanent   | btree         | 40 kB      | 
+ public | payments_one_success_per_trip  | index | postgres | payments          | permanent   | btree         | 32 kB      | 
+ public | payments_pkey                  | index | postgres | payments          | permanent   | btree         | 32 kB      | 
+ public | payments_trip_idx              | index | postgres | payments          | permanent   | btree         | 40 kB      | 
+ public | reviews_driver_idx             | index | postgres | reviews           | permanent   | btree         | 16 kB      | 
+ public | reviews_pkey                   | index | postgres | reviews           | permanent   | btree         | 16 kB      | 
+ public | reviews_trip_key               | index | postgres | reviews           | permanent   | btree         | 16 kB      | 
+ public | riders_email_key               | index | postgres | riders            | permanent   | btree         | 16 kB      | 
+ public | riders_phone_key               | index | postgres | riders            | permanent   | btree         | 16 kB      | 
+ public | riders_pkey                    | index | postgres | riders            | permanent   | btree         | 16 kB      | 
+ public | schema_migrations_pkey         | index | postgres | schema_migrations | permanent   | btree         | 16 kB      | 
+ public | trips_available_idx            | index | postgres | trips             | permanent   | btree         | 16 kB      | 
+ public | trips_driver_history_idx       | index | postgres | trips             | permanent   | btree         | 40 kB      | 
+ public | trips_id_fare_currency_key     | index | postgres | trips             | permanent   | btree         | 40 kB      | 
+ public | trips_idempotency_key_key      | index | postgres | trips             | permanent   | btree         | 40 kB      | 
+ public | trips_one_active_per_driver    | index | postgres | trips             | permanent   | btree         | 8192 bytes | 
+ public | trips_one_active_per_rider     | index | postgres | trips             | permanent   | btree         | 16 kB      | 
+ public | trips_pkey                     | index | postgres | trips             | permanent   | btree         | 32 kB      | 
+ public | trips_rider_history_idx        | index | postgres | trips             | permanent   | btree         | 40 kB      | 
+ public | vehicles_id_driver_key         | index | postgres | vehicles          | permanent   | btree         | 16 kB      | 
+ public | vehicles_one_active_per_driver | index | postgres | vehicles          | permanent   | btree         | 16 kB      | 
+ public | vehicles_pkey                  | index | postgres | vehicles          | permanent   | btree         | 16 kB      | 
+ public | vehicles_registration_key      | index | postgres | vehicles          | permanent   | btree         | 16 kB      | 
+(26 rows)
+

@@ -1,0 +1,9 @@
+# Local disposable PostgreSQL cluster used for the schema proof
+.pgdata/
+
+# Logs
+*.log
+
+# Editor/OS noise
+.DS_Store
+Thumbs.db

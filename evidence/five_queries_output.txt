@@ -1,0 +1,44 @@
+INSERT 0 1
+                  id                  |  status   |         pickup_location         |                  dropoff_location                  | fare_minor | currency | driver_name_snapshot | vehicle_registration_snapshot |          created_at           
+--------------------------------------+-----------+---------------------------------+----------------------------------------------------+------------+----------+----------------------+-------------------------------+-------------------------------
+ aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa | requested | Plot 12, Victoria Island, Lagos | Muritala Muhammed Airport Terminal 2, Ikeja, Lagos |     480000 | NGN      |                      |                               | 2026-10-16 10:48:59.091956+01
+ 4724195e-892a-4196-9d16-284e2343fca3 | completed | Pickup Spot 205, Lagos          | Dropoff Spot 205, Lagos                            |     455000 | NGN      | Driver 5             | REG-0005                      | 2026-10-10 09:48:57.912505+01
+ 6d15adcb-cff4-4139-9600-f502828c4172 | completed | Pickup Spot 103, Lagos          | Dropoff Spot 103, Lagos                            |     353000 | NGN      | Driver 5             | REG-0005                      | 2026-10-06 03:48:57.912505+01
+ 2e509823-b6a7-4aec-a576-1b320ff1dda3 | completed | Pickup Spot 1, Lagos            | Dropoff Spot 1, Lagos                              |     251000 | NGN      | Driver 5             | REG-0005                      | 2026-10-01 21:48:57.912505+01
+(4 rows)
+
+                  id                  |               rider_id               |           pickup_location           |                  dropoff_location                  | fare_minor | currency | estimated_distance_km | estimated_duration_minutes |          created_at           
+--------------------------------------+--------------------------------------+-------------------------------------+----------------------------------------------------+------------+----------+-----------------------+----------------------------+-------------------------------
+ 645dc495-c279-44c6-abf0-ba0b5dc65739 | 2a11261a-c451-46a9-b637-ec01c020c514 | Victoria Island Location #1, Lagos  | Ikeja Mall Location #1, Lagos                      |     325000 | NGN      |                 13.00 |                         36 | 2026-10-16 10:19:57.912505+01
+ 91685275-63ac-4633-aa05-87fcb9787dde | 64e63108-46f9-48cb-bff2-b96719ad44b6 | Victoria Island Location #2, Lagos  | Ikeja Mall Location #2, Lagos                      |     330000 | NGN      |                 13.50 |                         37 | 2026-10-16 10:20:57.912505+01
+ a489b106-8169-41c6-9e0b-610c2a2d1844 | 1109c79b-3503-4adb-9973-7b3637180b73 | Victoria Island Location #3, Lagos  | Ikeja Mall Location #3, Lagos                      |     335000 | NGN      |                 14.00 |                         38 | 2026-10-16 10:21:57.912505+01
+ 913e3853-207d-41e6-9a88-5049637099aa | 1865c5d4-79c3-4108-94c3-2789f6f932c1 | Victoria Island Location #4, Lagos  | Ikeja Mall Location #4, Lagos                      |     340000 | NGN      |                 14.50 |                         39 | 2026-10-16 10:22:57.912505+01
+ 8695be80-af2d-488b-97f6-e4b7887309b2 | 6d4d4bd3-c74b-4041-aa10-47c2c2884eb6 | Victoria Island Location #5, Lagos  | Ikeja Mall Location #5, Lagos                      |     345000 | NGN      |                 15.00 |                         40 | 2026-10-16 10:23:57.912505+01
+ a629768f-6a2d-4cfb-9ec1-9ece7ace6d7b | 3c58ba90-e5d9-44d1-a038-c2382c338702 | Victoria Island Location #6, Lagos  | Ikeja Mall Location #6, Lagos                      |     350000 | NGN      |                 15.50 |                         41 | 2026-10-16 10:24:57.912505+01
+ e5f67ab7-aab2-437a-b774-59f312830abd | 4ceee96a-e937-44a6-839b-8715ac3690d9 | Victoria Island Location #7, Lagos  | Ikeja Mall Location #7, Lagos                      |     355000 | NGN      |                 16.00 |                         42 | 2026-10-16 10:25:57.912505+01
+ c7d188b1-a790-4670-973b-08c0e840dba0 | c7d5cc34-204a-4d1a-a234-4ba222bac6b5 | Victoria Island Location #8, Lagos  | Ikeja Mall Location #8, Lagos                      |     360000 | NGN      |                 16.50 |                         43 | 2026-10-16 10:26:57.912505+01
+ 30dd8dff-d3f0-468e-9123-833a7beac4ad | 57ab3609-f1ef-4b3f-9db4-6ae9eb651ba4 | Victoria Island Location #9, Lagos  | Ikeja Mall Location #9, Lagos                      |     365000 | NGN      |                 17.00 |                         44 | 2026-10-16 10:27:57.912505+01
+ ba5ff552-c687-4d94-825d-a97f9da64533 | 11f873bc-aa84-47c8-9ed6-a932e15a312c | Victoria Island Location #10, Lagos | Ikeja Mall Location #10, Lagos                     |     370000 | NGN      |                 17.50 |                         45 | 2026-10-16 10:28:57.912505+01
+ aeda1bef-c6ca-4f82-b496-bba13c8d6966 | f3e85189-13dc-468a-8950-46357e768fcb | Victoria Island Location #11, Lagos | Ikeja Mall Location #11, Lagos                     |     375000 | NGN      |                 18.00 |                         46 | 2026-10-16 10:29:57.912505+01
+ 8cc41221-4574-47ca-8aaf-504e0c40a1e8 | c4c57377-9033-4cad-8792-15b1ae591c41 | Victoria Island Location #12, Lagos | Ikeja Mall Location #12, Lagos                     |     380000 | NGN      |                 18.50 |                         47 | 2026-10-16 10:30:57.912505+01
+ 1501e2d5-6574-4ed7-bebe-cfd3d65809da | 34da0d2f-8ff5-41ce-9af6-bd46bbcef9d3 | Victoria Island Location #13, Lagos | Ikeja Mall Location #13, Lagos                     |     385000 | NGN      |                 19.00 |                         48 | 2026-10-16 10:31:57.912505+01
+ b022d70f-b656-4f5c-b3eb-ee7c2e9242e2 | 595a2e80-4ddf-4883-9990-d47f407d6f38 | Victoria Island Location #14, Lagos | Ikeja Mall Location #14, Lagos                     |     390000 | NGN      |                 19.50 |                         49 | 2026-10-16 10:32:57.912505+01
+ 63033745-ba79-4448-8b0c-8ecd1edad2e9 | 9eef2eea-1c38-41bc-b2c5-27b90c8f68a0 | Victoria Island Location #15, Lagos | Ikeja Mall Location #15, Lagos                     |     395000 | NGN      |                 20.00 |                         50 | 2026-10-16 10:33:57.912505+01
+ aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa | 22222222-2222-4222-8222-222222222222 | Plot 12, Victoria Island, Lagos     | Muritala Muhammed Airport Terminal 2, Ikeja, Lagos |     480000 | NGN      |                 24.50 |                         55 | 2026-10-16 10:48:59.091956+01
+(16 rows)
+
+UPDATE 1
+UPDATE 1
+UPDATE 1
+INSERT 0 1
+                  id                  |               trip_id                | amount_minor | currency | method |   status   |    provider_reference    |         processed_at          
+--------------------------------------+--------------------------------------+--------------+----------+--------+------------+--------------------------+-------------------------------
+ bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb | aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa |       480000 | NGN      | card   | successful | pay_ref_test_action4_001 | 2026-10-16 10:48:59.134508+01
+(1 row)
+
+INSERT 0 1
+ total_reviews | average_rating 
+---------------+----------------
+             3 |           4.33
+(1 row)
+
